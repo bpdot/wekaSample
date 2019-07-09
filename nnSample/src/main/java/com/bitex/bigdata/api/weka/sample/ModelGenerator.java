@@ -10,6 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import weka.classifiers.Classifier;
 import weka.classifiers.evaluation.Evaluation;
+import weka.core.Debug.Random;
 import weka.core.Instances;
 import weka.core.SerializationHelper;
 import weka.core.converters.ConverterUtils.DataSource;
@@ -29,14 +30,14 @@ public class ModelGenerator {
         return t;
     }
     
-    public Classifier buildClassifier(Instances traindataset, String model)  throws IllegalAccessException, InstantiationException,ClassNotFoundException{
+    public Classifier buildClassifier(String modelName,Instances traindataset)  throws IllegalAccessException, InstantiationException,ClassNotFoundException{
 //        MultilayerPerceptron m = new MultilayerPerceptron();
 
 //        Class clazz = Class.forName(model);
 //        Classifier m = new ClassifierFactory().getBuilder(clazz);
 //        Classifier m=new ClassifierFactory() .getBuilder(Class.forName(model));
 
-        Class clazz =Class.forName(model);
+        Class clazz =Class.forName(modelName);
         Classifier m = (Classifier)ModelGenerator.getBuilder(clazz);
         try {
             m.buildClassifier(traindataset);
@@ -52,6 +53,21 @@ public class ModelGenerator {
             // Evaluate classifier with test dataset
             eval = new Evaluation(traindataset);
             eval.evaluateModel(model, testdataset);
+        } catch (Exception ex) {
+            Logger.getLogger(ModelGenerator.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return eval.toSummaryString("", true);
+    }
+    
+    public String evaluateModelCrossValidation(String modelName, Instances alldataset)  throws IllegalAccessException, InstantiationException,ClassNotFoundException{
+        Evaluation eval=null;
+        Class clazz =Class.forName(modelName);
+        Classifier model = (Classifier)ModelGenerator.getBuilder(clazz);
+        try {
+            // Evaluate classifier with test dataset
+            eval = new Evaluation(alldataset);
+            eval.crossValidateModel(model, alldataset, 10, new Random(1));
+    
         } catch (Exception ex) {
             Logger.getLogger(ModelGenerator.class.getName()).log(Level.SEVERE, null, ex);
         }

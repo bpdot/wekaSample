@@ -14,40 +14,43 @@ import weka.filters.Filter;
 import weka.filters.unsupervised.attribute.Normalize;
 
 
-
 /**
  *
  * @author HH
  */
 public class Test {
     public static String DATASETDIR = "D:\\Dataset\\datasets-UCI\\UCI\\";
-    public static String DATASETNAME = "iris.arff";
+    public static String DATASETNAME = "mushroom.arff";
     public static String DATASETPATH = DATASETDIR +DATASETNAME;
     
     public static String MODElDIR = "D:\\Dataset\\model\\";
     
     public static void main(String[] args) throws Exception {
+        
+        boolean flagNormalize = true;
 //     mix dataset        
         Instances dataset = new Dataset().loadDataset(DATASETPATH);
-        dataset.randomize(new Debug.Random(5));
+        dataset.randomize(new Debug.Random(4));
         
 //     Normalize dataset
-        Filter filter = new Normalize();
-        filter.setInputFormat(dataset);
-        Instances datasetnor = Filter.useFilter(dataset, filter);
-
-//     seperate into train and test dataset        
-        int trainSize = (int) Math.round(dataset.numInstances() * 0.8);
-        int testSize = dataset.numInstances() - trainSize;
-        Instances trainDataset = new Instances(datasetnor, 0, trainSize);
-        Instances testDataset = new Instances(datasetnor, trainSize, testSize);
+        Instances datasetnor;
+        if (flagNormalize) {
+            Filter filter = new Normalize();
+            filter.setInputFormat(dataset);
+            datasetnor = Filter.useFilter(dataset, filter);
+        } else {
+            datasetnor = dataset;
+        }
 
 //     build classifier with train dataset
         ArrayList<String> modelSet = new ArrayList<String>();
         modelSet.add("weka.classifiers.trees.RandomForest");
+        modelSet.add("weka.classifiers.meta.AdaBoostM1");
+//        modelSet.add("weka.classifiers.meta.AdditiveRegression");
         modelSet.add("weka.classifiers.lazy.IBk");
         modelSet.add("weka.classifiers.functions.SMO");
         modelSet.add("weka.classifiers.bayes.NaiveBayes");
+        modelSet.add("weka.classifiers.meta.LogitBoost");
 //        modelSet.add("weka.classifiers.functions.MultilayerPerceptron");
         
         for(String modelClass:modelSet){
@@ -55,16 +58,14 @@ public class Test {
             System.out.println("---------------------------------------------------------------------");
             System.out.println(MODElNAME);
             ModelGenerator mg = new ModelGenerator();
-            Classifier model = (Classifier) mg.buildClassifier(trainDataset,modelClass);
-
-            // Evaluate classifier with test dataset
-            String evalsummary = mg.evaluateModel(model, trainDataset, testDataset);
-    
+            
+            // Evaluate classifier with crossvalidation
+            String evalsummary = mg.evaluateModelCrossValidation(modelClass, datasetnor);
             System.out.println("Evaluation: " + evalsummary);
             System.out.println("---------------------------------------------------------------------");
-
+                   
             //Save model
-
+            Classifier model = (Classifier) mg.buildClassifier(modelClass,datasetnor);
             String MODElPATH = MODElDIR + DATASETNAME.split(".arff")[0]+MODElNAME;
             mg.saveModel(model, MODElPATH);
         }
