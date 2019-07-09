@@ -7,69 +7,103 @@ Ouput of Test.java:
     
     RandomForest
     Evaluation: 
-    Correctly Classified Instances          29               96.6667 %
-    Incorrectly Classified Instances         1                3.3333 %
-    Kappa statistic                          0.9476
-    K&B Relative Info Score                 92.0328 %
-    K&B Information Score                   44.6912 bits      1.4897 bits/instance
-    Class complexity | order 0              48.56   bits      1.6187 bits/instance
-    Class complexity | scheme                4.0586 bits      0.1353 bits/instance
-    Complexity improvement     (Sf)         44.5014 bits      1.4834 bits/instance
-    Mean absolute error                      0.0433
-    Root mean squared error                  0.1431
-    Relative absolute error                  9.648  %
-    Root relative squared error             30.0058 %
-    Total Number of Instances               30     
+    Correctly Classified Instances        8124              100      %
+    Incorrectly Classified Instances         0                0      %
+    Kappa statistic                          1     
+    K&B Relative Info Score                 99.949  %
+    K&B Information Score                 8112.2893 bits      0.9986 bits/instance
+    Class complexity | order 0            8116.4288 bits      0.9991 bits/instance
+    Class complexity | scheme                4.1394 bits      0.0005 bits/instance
+    Complexity improvement     (Sf)       8112.2893 bits      0.9986 bits/instance
+    Mean absolute error                      0.0003
+    Root mean squared error                  0.0031
+    Relative absolute error                  0.0697 %
+    Root relative squared error              0.627  %
+    Total Number of Instances             8124     
 
+   
+    AdaBoostM1
+    Evaluation: 
+    Correctly Classified Instances        7825               96.3195 %
+    Incorrectly Classified Instances       299                3.6805 %
+    Kappa statistic                          0.9263
+    K&B Relative Info Score                 89.4359 %
+    K&B Information Score                 7259.0037 bits      0.8935 bits/instance
+    Class complexity | order 0            8116.4288 bits      0.9991 bits/instance
+    Class complexity | scheme             1054.2737 bits      0.1298 bits/instance
+    Complexity improvement     (Sf)       7062.1551 bits      0.8693 bits/instance
+    Mean absolute error                      0.0579
+    Root mean squared error                  0.1591
+    Relative absolute error                 11.5915 %
+    Root relative squared error             31.8497 %
+    Total Number of Instances             8124     
 
+    
     IBk
     Evaluation: 
-    Correctly Classified Instances          26               86.6667 %
-    Incorrectly Classified Instances         4               13.3333 %
-    Kappa statistic                          0.788 
-    K&B Relative Info Score                 80.8071 %
-    K&B Information Score                   39.24   bits      1.308  bits/instance
-    Class complexity | order 0              48.56   bits      1.6187 bits/instance
-    Class complexity | scheme               28.385  bits      0.9462 bits/instance
-    Complexity improvement     (Sf)         20.1751 bits      0.6725 bits/instance
-    Mean absolute error                      0.0976
-    Root mean squared error                  0.2947
-    Relative absolute error                 21.7216 %
-    Root relative squared error             61.7887 %
-    Total Number of Instances               30     
+    Correctly Classified Instances        8124              100      %
+    Incorrectly Classified Instances         0                0      %
+    Kappa statistic                          1     
+    K&B Relative Info Score                 99.9979 %
+    K&B Information Score                 8116.2603 bits      0.999  bits/instance
+    Class complexity | order 0            8116.4288 bits      0.9991 bits/instance
+    Class complexity | scheme                0.1684 bits      0      bits/instance
+    Complexity improvement     (Sf)       8116.2603 bits      0.999  bits/instance
+    Mean absolute error                      0     
+    Root mean squared error                  0     
+    Relative absolute error                  0.0029 %
+    Root relative squared error              0.003  %
+    Total Number of Instances             8124     
 
-
+    
     SMO
     Evaluation: 
-    Correctly Classified Instances          29               96.6667 %
-    Incorrectly Classified Instances         1                3.3333 %
-    Kappa statistic                          0.9476
-    K&B Relative Info Score                 61.8022 %
-    K&B Information Score                   30.0112 bits      1.0004 bits/instance
-    Class complexity | order 0              48.56   bits      1.6187 bits/instance
-    Class complexity | scheme               18.5489 bits      0.6183 bits/instance
-    Complexity improvement     (Sf)         30.0112 bits      1.0004 bits/instance
-    Mean absolute error                      0.2296
-    Root mean squared error                  0.2854
-    Relative absolute error                 51.1263 %
-    Root relative squared error             59.8475 %
-    Total Number of Instances               30     
+    Correctly Classified Instances        8124              100      %
+    Incorrectly Classified Instances         0                0      %
+    Kappa statistic                          1     
+    K&B Relative Info Score                100      %
+    K&B Information Score                 8116.4288 bits      0.9991 bits/instance
+    Class complexity | order 0            8116.4288 bits      0.9991 bits/instance
+    Class complexity | scheme                0      bits      0      bits/instance
+    Complexity improvement     (Sf)       8116.4288 bits      0.9991 bits/instance
+    Mean absolute error                      0     
+    Root mean squared error                  0     
+    Relative absolute error                  0      %
+    Root relative squared error              0      %
+    Total Number of Instances             8124     
 
     
     NaiveBayes
     Evaluation: 
-    Correctly Classified Instances          29               96.6667 %
-    Incorrectly Classified Instances         1                3.3333 %
-    Kappa statistic                          0.9476
-    K&B Relative Info Score                 94.1496 %
-    K&B Information Score                   45.7191 bits      1.524  bits/instance
-    Class complexity | order 0              48.56   bits      1.6187 bits/instance
-    Class complexity | scheme                5.2434 bits      0.1748 bits/instance
-    Complexity improvement     (Sf)         43.3167 bits      1.4439 bits/instance
-    Mean absolute error                      0.0316
-    Root mean squared error                  0.1467
-    Relative absolute error                  7.0437 %
-    Root relative squared error             30.7655 %
-    Total Number of Instances               30     
+    Correctly Classified Instances        7782               95.7903 %
+    Incorrectly Classified Instances       342                4.2097 %
+    Kappa statistic                          0.9155
+    K&B Relative Info Score                 91.6144 %
+    K&B Information Score                 7435.8151 bits      0.9153 bits/instance
+    Class complexity | order 0            8116.4288 bits      0.9991 bits/instance
+    Class complexity | scheme             1418.3394 bits      0.1746 bits/instance
+    Complexity improvement     (Sf)       6698.0893 bits      0.8245 bits/instance
+    Mean absolute error                      0.0418
+    Root mean squared error                  0.1756
+    Relative absolute error                  8.3755 %
+    Root relative squared error             35.1473 %
+    Total Number of Instances             8124     
+
+   
+    LogitBoost
+    Evaluation: 
+    Correctly Classified Instances        7984               98.2767 %
+    Incorrectly Classified Instances       140                1.7233 %
+    Kappa statistic                          0.9655
+    K&B Relative Info Score                 91.0257 %
+    K&B Information Score                 7388.0397 bits      0.9094 bits/instance
+    Class complexity | order 0            8116.4288 bits      0.9991 bits/instance
+    Class complexity | scheme              811.6813 bits      0.0999 bits/instance
+    Complexity improvement     (Sf)       7304.7475 bits      0.8992 bits/instance
+    Mean absolute error                      0.0534
+    Root mean squared error                  0.1215
+    Relative absolute error                 10.6995 %
+    Root relative squared error             24.3116 %
+    Total Number of Instances             8124     
 
    
